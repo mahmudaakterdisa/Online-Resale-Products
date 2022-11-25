@@ -1,0 +1,19 @@
+.allcatagories-container {
+    height: 100%;
+    width: 90%;
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    /* background-color: blue; */
+}
+
+.allcatagories-text {
+    text-align: center;
+}
+
+
+.allproducts-container {
+
+    margin-top: 5%;
+    /* background-color: aqua; */
+}

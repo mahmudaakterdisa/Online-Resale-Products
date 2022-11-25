@@ -1,0 +1,14 @@
+[
+    {
+        "catagory_id": 1,
+        "catagory_name": "Bedroom-Furniture"
+    },
+    {
+        "catagory_id": 2,
+        "catagory_name": "kitchen-Furniture"
+    },
+    {
+        "catagory_id": 3,
+        "catagory_name": "Living-Room-Furniture"
+    }
+]

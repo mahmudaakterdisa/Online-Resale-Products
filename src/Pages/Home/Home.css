@@ -1,0 +1,21 @@
+.home-container {
+    height: 100%;
+    width: 90%;
+}
+
+.banner-container {
+    margin-left: 10%;
+    /* margin-right: 10%; */
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+}
+
+.catagories-container {
+    margin-bottom: 10%;
+}
+
+.ctagories-text {
+    text-align: center;
+    margin-bottom: 5%;
+}
