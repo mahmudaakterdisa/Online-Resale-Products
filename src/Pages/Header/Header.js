@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Authcontext } from '../../Shared/Authprovider/Authprovider';
 import './Header.css'
 
 const Header = () => {
-    // const { user, logout } = useContext(Authcontext);
+    const { user, logout } = useContext(Authcontext);
 
 
-    // const handlelogout = () => {
-    //     logout()
-    //         .then(() => { })
-    //         .catch(error => console.error(error))
-    // }
+    const handlelogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
 
     const menuItem = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='appointments'>Appoinment</Link></li>
-        <li><Link to=''>About</Link></li>
-        <li><Link to='dashboard'>Dashboard</Link></li>
-        <li><Link to='register'>Register</Link></li>
-        <li><Link to='login'>Login</Link></li>
+
+
+
+        <li><Link to='/register'>Register</Link></li>
+        {user?.uid ?
+            <>
+                <li><Link to='/dashboard'>Dashboard</Link></li>
+                <li><Link onClick={handlelogout} to='/login'>LogOut</Link></li>
+            </>
+            :
+            <li><Link to='/login'>LogIn</Link></li>
+        }
 
     </React.Fragment>
     return (
