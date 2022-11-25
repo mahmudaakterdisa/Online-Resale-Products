@@ -7,9 +7,11 @@ const Services = ({ service }) => {
 
     return (
         <div>
-            <Link to={`/allcatagories/${_id}`}>
+            <Link to={`/allcatagories/${catagory_name}`}>
                 <h2>{catagory_name}</h2>
             </Link>
+
+
 
         </div>
     );

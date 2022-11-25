@@ -17,7 +17,7 @@ const Availableproducts = ({ products, setFurniture }) => {
                 <h6>Seller-Name: {Date}</h6>
                 <div className="card-actions justify-end">
 
-                    {/* The button to open modal */}
+
                     <label onClick={() => setFurniture(products)} htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                 </div>
             </div>

@@ -8,7 +8,7 @@ const Allcatagories = () => {
     const getcatagory = useLoaderData();
     const [furniture, setFurniture] = useState(null);
     const { catagory_name, catagory_product } = getcatagory;
-    // console.log(furniture)
+
     return (
         <div className='allcatagories-container'>
             <div className='allcatagories-text'>

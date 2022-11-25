@@ -3,6 +3,7 @@ import Main from "../../Layout/Main";
 import Allcatagories from "../AllCatagories/Allcatagories";
 import Home from "../Home/Home";
 
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -13,10 +14,11 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/allcatagories/:id',
-                loader: ({ params }) => fetch(`https://y-omega-two.vercel.app/services/${params.id}`),
+                path: '/allcatagories/:name',
+                loader: ({ params }) => fetch(`https://y-omega-two.vercel.app/catagories/${params.name}`),
                 element: <Allcatagories></Allcatagories>
-            }
+            },
+
         ]
     }
 ])
