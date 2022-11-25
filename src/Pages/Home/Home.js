@@ -27,7 +27,7 @@ const Home = () => {
                 <div className='ctagories-text'>
                     <h1>Available Catagories</h1>
                 </div>
-                <div className='grid gap-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 '>
+                <div className='grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 '>
 
 
                     {
@@ -35,6 +35,8 @@ const Home = () => {
 
                     }
                 </div>
+
+
 
             </div>
 

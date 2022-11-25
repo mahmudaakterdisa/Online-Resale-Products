@@ -1,7 +1,7 @@
 import React from 'react';
 import './Availableproducts.css';
 
-const Availableproducts = ({ products }) => {
+const Availableproducts = ({ products, setFurniture }) => {
     console.log(products);
     const { image, name, resaleprice, originalprice, yearsofuse, location, Date } = products
     return (
@@ -16,7 +16,9 @@ const Availableproducts = ({ products }) => {
                 <h6>Posted-Date: {Date}</h6>
                 <h6>Seller-Name: {Date}</h6>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Book Now</button>
+
+                    {/* The button to open modal */}
+                    <label onClick={() => setFurniture(products)} htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                 </div>
             </div>
         </div>
