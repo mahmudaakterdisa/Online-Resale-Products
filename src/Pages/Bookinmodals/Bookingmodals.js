@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { Authcontext } from '../../Shared/Authprovider/Authprovider';
 
 const Bookingmodals = ({ furniture, setFurniture }) => {
-    console.log(furniture);
+    // console.log(furniture);
     const { name, resaleprice } = furniture
     const { user } = useContext(Authcontext)
 
