@@ -2,7 +2,7 @@ import React from 'react';
 import './Availableproducts.css';
 
 const Availableproducts = ({ products, setFurniture }) => {
-    console.log(products);
+
     const { image, name, resaleprice, originalprice, yearsofuse, location, Date } = products
     return (
         <div className="card w-96 bg-base-100 shadow-xl availableproduct-container">

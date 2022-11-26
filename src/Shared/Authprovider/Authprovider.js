@@ -42,7 +42,7 @@ const Authprovider = ({ children }) => {
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-        console.log(email, password);
+
     }
     // for logout
 
@@ -56,7 +56,7 @@ const Authprovider = ({ children }) => {
 
     // for update username
     const updateUser = (userInfo) => {
-        return updateProfile(user, userInfo);
+        return updateProfile(auth.currentUser, userInfo);
     }
 
     // const updateUserName = (username) => {

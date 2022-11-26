@@ -21,7 +21,7 @@ const Allcatagories = () => {
             </div>
             {
                 furniture &&
-                <Bookingmodals furniture={furniture}></Bookingmodals>
+                <Bookingmodals furniture={furniture} setFurniture={setFurniture}></Bookingmodals>
             }
 
 
