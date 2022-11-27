@@ -5,10 +5,10 @@
         "image": "https://img.freepik.com/free-photo/bedroom-interior-dark-style-dark-blue-wall-mockup-3d-rendering_41470-3962.jpg?w=1380&t=st=1669290454~exp=1669291054~hmac=98f89680472fdad40dca9782943aaed5b8fa8a434ee4c27da8b9ad62cd031e60",
         "name": "single Bed",
         "location": "121 Cologne",
-        "resale price": 150,
-        "original price": 350,
-        "years of use": 2,
-        "delivery-time": "3-5 days"
+        "resaleprice": 150,
+        "originalprice": 350,
+        "yearsofuse": 2,
+        "delivery_time": "3-5 days"
     },
     {
         "product_id": 1,
@@ -16,10 +16,10 @@
         "image": "https://img.freepik.com/free-photo/mock-up-living-room-interior-with-armchair-empty-dark-blue-wall-wall-background-3d-rendering_41470-4089.jpg?w=1800&t=st=1669291047~exp=1669291647~hmac=a9a585ab36bd206ae38ea9b1fb224a1b63a9644c0bebf9974446146c8e02097f",
         "name": " Armchair",
         "location": "03 Berlin",
-        "resale price": 250,
-        "original price": 450,
-        "years of use": 2.5,
-        "delivery-time": "3 days"
+        "resaleprice": 250,
+        "originalprice": 450,
+        "yearsofuse": 2.5,
+        "delivery_time": "3 days"
     },
     {
         "product_id": 2,
@@ -27,10 +27,10 @@
         "image": "https://img.freepik.com/free-photo/empty-modern-room-with-furniture_23-2149178335.jpg?w=1380&t=st=1669291262~exp=1669291862~hmac=cc3d445bbbe16ef945ed644b71979cc0fc7c3726addf566c5e26e4258c4b50a5",
         "name": "Kitchen Light",
         "location": "50 Dortmund",
-        "resale price": 450,
-        "original price": 750,
-        "years of use": 2,
-        "delivery-time": "3-5 days"
+        "resaleprice": 450,
+        "originalprice": 750,
+        "yearsofuse": 2,
+        "delivery_time": "3-5 days"
     },
     {
         "product_id": 2,
@@ -38,10 +38,10 @@
         "image": "https://img.freepik.com/free-photo/luxury-kitchen-corner-design-with-dark-blue-wall_41470-4887.jpg?w=1380&t=st=1669291404~exp=1669292004~hmac=4c7809818233bea0d8f14a03b8cc791de366df7767cbf4e196bc452d3825057a",
         "name": " Bake Oven",
         "location": "32 Hamburg",
-        "resale price": 850,
-        "original price": 1050,
-        "years of use": 3,
-        "delivery-time": "5 days"
+        "resaleprice": 850,
+        "originalprice": 1050,
+        "yearsofuse": 3,
+        "delivery_time": "5 days"
     },
     {
         "product_id": 3,
@@ -49,10 +49,10 @@
         "image": "https://img.freepik.com/free-photo/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering_41470-3753.jpg?w=1380&t=st=1669291711~exp=1669292311~hmac=f07cc1f47c18044caf135b5ae418b48e17459e63e3f16312eca565be2a6f67d4",
         "name": "Sofa",
         "location": "50 Aachen",
-        "resale price": 980,
-        "original price": 1250,
-        "years of use": 4,
-        "delivery-time": "3-5 days"
+        "resaleprice": 980,
+        "originalprice": 1250,
+        "yearsofuse": 4,
+        "delivery_time": "3-5 days"
     },
     {
         "product_id": 3,
@@ -60,9 +60,9 @@
         "image": "https://img.freepik.com/free-photo/modern-interior-room-with-furniture-3d-rendering_41470-3520.jpg?w=1380&t=st=1669291817~exp=1669292417~hmac=8eba56f68ad26d29a7d81236dae74ffdf37755091e6e97094e3f34fe81e7fe8c",
         "name": "LED Tv",
         "location": "65 Sttutgart",
-        "resale price": 1050,
-        "original price": 1850,
-        "years of use": 2,
-        "delivery-time": "2 days"
+        "resaleprice": 1050,
+        "originalprice": 1850,
+        "yearsofuse": 2,
+        "delivery_time": "2 days"
     }
 ]

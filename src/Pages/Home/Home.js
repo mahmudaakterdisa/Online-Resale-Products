@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Advertise from '../Advertise/Advertise';
 import Banner from './Banner/Banner';
 
 
@@ -37,6 +38,9 @@ const Home = () => {
                 </div>
 
 
+                <div>
+                    <Advertise></Advertise>
+                </div>
 
             </div>
 

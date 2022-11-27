@@ -43,7 +43,7 @@ const Dashboartlaout = () => {
 
 
                         <li className='mb-5'><Link to='/dashboard/myorders'>My Orders</Link></li>
-                        <li className='mb-5'><Link to='/dashboard/adddoc'>Add Products</Link></li>
+                        <li className='mb-5'><Link to='/dashboard/addproduct'>Add Products</Link></li>
                         {
                             isAdmin && <>
 

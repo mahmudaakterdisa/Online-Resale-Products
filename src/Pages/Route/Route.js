@@ -5,7 +5,8 @@ import Privateroute from "../../Shared/Privateroute/Privateroute";
 import Adminroute from "../Adminroute/Adminroute";
 
 import Allcatagories from "../AllCatagories/Allcatagories";
-import Adddoc from "../Dashboard/AddDoctor/Adddoc";
+import Addproduct from "../Dashboard/Addproduct/Addproduct";
+
 import Alluser from "../Dashboard/Allusers/Alluser";
 import Dashboard from "../Dashboard/Dash/Dashboard";
 import Myorders from "../Dashboard/Myorders/Myorders";
@@ -59,8 +60,8 @@ export const router = createBrowserRouter([
                 element: <Alluser></Alluser>
             },
             {
-                path: '/dashboard/adddoc',
-                element: <Adddoc></Adddoc>
+                path: '/dashboard/addproduct',
+                element: <Addproduct></Addproduct>
             },
 
         ]
