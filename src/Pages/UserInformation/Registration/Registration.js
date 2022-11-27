@@ -11,7 +11,7 @@ const Registration = () => {
 
     const handleregister = data => {
         console.log(data);
-        console.log(data.name);
+        console.log(data.usertype);
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
@@ -22,12 +22,28 @@ const Registration = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/');
+                        saveUser(data.name, data.email, data.usertype);
                     })
                     .catch(err => console.log(err));
             })
             .catch(error => console.log(error));
 
+    }
+
+    const saveUser = (name, email, typeuser) => {
+        const user = { name, email, typeuser };
+        fetch('https://y-omega-two.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                navigate('/');
+            })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
@@ -58,11 +74,11 @@ const Registration = () => {
 
                         </label>
                         <input type="text" {...register(
-                            "user",
-                            { required: "Name is required" }
+                            "usertype",
+                            { required: "Type is required" }
                         )}
                             className="input input-bordered w-full max-w-xs" />
-                        {errors.name && <p className='text-red-600'>{errors.name?.message}</p>}
+                        {errors.usertype && <p className='text-red-600'>{errors.usertype?.message}</p>}
 
 
                     </div>

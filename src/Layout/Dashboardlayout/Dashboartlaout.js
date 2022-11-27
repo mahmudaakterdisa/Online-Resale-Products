@@ -1,10 +1,31 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import useAdmin from '../../hook/useAdmin';
 
 import Footer from '../../Pages/Footer/Footer';
 import Header from '../../Pages/Header/Header';
+import { Authcontext } from '../../Shared/Authprovider/Authprovider';
 
 const Dashboartlaout = () => {
+    const { user } = useContext(Authcontext);
+    const [isAdmin] = useAdmin(user?.email);
+
+    const [userType, setUserType] = useState({});
+
+    useEffect(() => {
+
+        fetch(`https://y-omega-two.vercel.app/users?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+
+                console.log(data)
+                setUserType(data)
+            })
+    }, [user?.email])
+
+    // console.log(userType);
+
+
     return (
         <div>
             <Header></Header>
@@ -19,9 +40,17 @@ const Dashboartlaout = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                        <li><a>My Orders</a></li>
-                        <li><a>Add Product</a></li>
-                        <li><a>All Users</a></li>
+
+
+                        <li className='mb-5'><Link to='/dashboard/myorders'>My Orders</Link></li>
+                        <li className='mb-5'><Link to='/dashboard/adddoc'>Add Products</Link></li>
+                        {
+                            isAdmin && <>
+
+                                <li className='mb-5'><Link to='/dashboard/alluser'>All Users</Link></li>
+
+                            </>
+                        }
                     </ul>
 
                 </div>

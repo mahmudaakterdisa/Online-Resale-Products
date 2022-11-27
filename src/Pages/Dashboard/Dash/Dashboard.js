@@ -3,7 +3,7 @@ import React from 'react';
 const Dashboard = () => {
     return (
         <div>
-            soon
+            Wellcome To Dashboard
         </div>
     );
 };

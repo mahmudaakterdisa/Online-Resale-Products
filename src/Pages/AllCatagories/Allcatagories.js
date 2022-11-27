@@ -12,7 +12,7 @@ const Allcatagories = () => {
     return (
         <div className='allcatagories-container'>
             <div className='allcatagories-text'>
-                <h1>{catagory_name}</h1>
+                <h1 className='text-4xl'>{catagory_name}</h1>
             </div>
             <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 allproducts-container'>
                 {

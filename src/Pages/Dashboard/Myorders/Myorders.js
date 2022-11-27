@@ -1,31 +1,23 @@
+
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { Authcontext } from '../../../Shared/Authprovider/Authprovider';
 
 const Myorders = () => {
     const { user } = useContext(Authcontext);
-    const [boookingsdata, setBookingsdata] = useState([]);
-    // const url = `https://y-omega-two.vercel.app/bookings?email=${user?.email}`;
-    // console.log(url);
-    // const { data: bookings = [] } = useQuery({
-    //     queryKey: ['bookings', user?.email],
-    //     queryFn: async () => {
-    //         const res = await fetch(url);
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // })
 
-    useEffect(() => {
-        fetch(`https://y-omega-two.vercel.app/bookings?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setBookingsdata(data);
-            })
-    }, [user?.email])
+    const url = `https://y-omega-two.vercel.app/bookings?email=${user?.email}`;
 
-    console.log(boookingsdata)
+    const { data: bookings = [] } = useQuery({
+        queryKey: ['bookings', user?.email],
+        queryFn: async () => {
+            const res = await fetch(url);
+            const data = await res.json();
+            return data;
+        }
+    })
+
+
 
     return (
         <div>
@@ -47,7 +39,7 @@ const Myorders = () => {
                     <tbody>
 
                         {
-                            boookingsdata.map((book, i) => <tr>
+                            bookings.map((book, i) => <tr>
                                 <th>{i}</th>
                                 <td>{book.productName}</td>
                                 <td>{book.productPrice}</td>
