@@ -3,19 +3,19 @@ import Availablead from './Availablead';
 
 const Advertise = () => {
 
-    const [getAdvertise, setGetAdvertise] = useState([]);
+    // const [getAdvertise, setGetAdvertise] = useState([]);
 
 
-    useEffect(() => {
-        fetch('https://y-omega-two.vercel.app/advertise')
-            .then(res => res.json())
-            .then(data => setGetAdvertise(data))
-    }, []);
+    // useEffect(() => {
+    //     fetch('https://y-omega-two.vercel.app/advertise')
+    //         .then(res => res.json())
+    //         .then(data => setGetAdvertise(data))
+    // }, []);
 
     return (
         <div className='mt-20'>
 
-            {
+            {/* {
                 getAdvertise.length > 0 &&
                 <h1 className='text-4xl'>Available Advertise</h1>
             }
@@ -25,7 +25,7 @@ const Advertise = () => {
                 {
                     getAdvertise.map((ad) => <Availablead key={ad._id} ad={ad}></Availablead>)
                 }
-            </div>
+            </div> */}
 
 
 

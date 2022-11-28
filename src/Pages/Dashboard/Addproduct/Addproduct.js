@@ -28,12 +28,12 @@ const Addproduct = () => {
             sallername: data.sellername,
             advertise: data.advertise,
 
-            productName: data.pname,
+            name: data.pname,
 
 
         }
 
-        fetch('https://y-omega-two.vercel.app/advertise', {
+        fetch('https://y-omega-two.vercel.app/catagories', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

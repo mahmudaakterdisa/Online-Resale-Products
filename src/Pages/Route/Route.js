@@ -10,6 +10,7 @@ import Addproduct from "../Dashboard/Addproduct/Addproduct";
 import Alluser from "../Dashboard/Allusers/Alluser";
 import Dashboard from "../Dashboard/Dash/Dashboard";
 import Myorders from "../Dashboard/Myorders/Myorders";
+import Payment from "../Dashboard/Payment/Payment";
 
 import Home from "../Home/Home";
 import Login from "../UserInformation/Login/Login";
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
                 path: '/dashboard/addproduct',
                 element: <Addproduct></Addproduct>
             },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>
+            }
 
         ]
     }

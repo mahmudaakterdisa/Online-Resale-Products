@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { ToastBar } from 'react-hot-toast';
 
 const Alluser = () => {
 
@@ -13,7 +13,7 @@ const Alluser = () => {
             return data;
         }
     });
-    console.log(users);
+
 
     //Admin
     const handleAdmin = (id) => {
@@ -29,6 +29,23 @@ const Alluser = () => {
             })
 
 
+
+    }
+
+    //handle delete
+    const handledelete = (userid) => {
+        fetch(`https://y-omega-two.vercel.app/users/${userid}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast("Deleted Successfully")
+
+
+                }
+            })
 
     }
 
@@ -74,7 +91,7 @@ const Alluser = () => {
                                     }
 
                                 </td>
-                                <td><button className='btn btn-outline'>Delete</button></td>
+                                <td><button onClick={() => handledelete(userinfo._id)} className='btn btn-outline'>Delete</button></td>
                             </tr>)
 
                         }

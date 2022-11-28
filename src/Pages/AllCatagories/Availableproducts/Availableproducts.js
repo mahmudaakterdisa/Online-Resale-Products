@@ -3,7 +3,7 @@ import './Availableproducts.css';
 
 const Availableproducts = ({ products, setFurniture }) => {
 
-    const { image, name, resaleprice, originalprice, yearsofuse, location, Date } = products
+    const { image, name, resaleprice, originalprice, yearsofuse, location, Date, sallername } = products
     return (
         <div className="card w-96 bg-base-100 shadow-xl availableproduct-container">
             <figure><img src={image} alt="furniture" /></figure>
@@ -14,7 +14,7 @@ const Availableproducts = ({ products, setFurniture }) => {
                 <h6>years-of-use: {yearsofuse}</h6>
                 <h6>Location: {location}</h6>
                 <h6>Posted-Date: {Date}</h6>
-                <h6>Seller-Name: {Date}</h6>
+                <h6>Seller-Name: {products.sallername ? sallername : 'Not found'}</h6>
                 <div className="card-actions justify-end">
 
 
