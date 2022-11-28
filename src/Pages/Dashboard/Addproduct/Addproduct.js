@@ -45,7 +45,7 @@ const Addproduct = () => {
                 console.log(data);
                 if (data.acknowledged) {
 
-                    toast.success('Booked');
+                    toast.success('Added Successfully');
                 }
 
             })

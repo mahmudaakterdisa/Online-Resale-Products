@@ -5,6 +5,7 @@ import Banner from './Banner/Banner';
 
 import './Home.css'
 import Services from './Services/Services';
+import Testimonial from './Testimonial/Testimonial';
 
 const Home = () => {
     const [services, setServices] = useState([]);
@@ -26,7 +27,7 @@ const Home = () => {
 
             <div className='catagories-container'>
                 <div className='ctagories-text'>
-                    <h1>Available Catagories</h1>
+                    <h1 className='text-4xl'>Available Catagories</h1>
                 </div>
                 <div className='grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 '>
 
@@ -40,6 +41,9 @@ const Home = () => {
 
                 <div>
                     <Advertise></Advertise>
+                </div>
+                <div className='testimonial-conatiner'>
+                    <Testimonial></Testimonial>
                 </div>
 
             </div>

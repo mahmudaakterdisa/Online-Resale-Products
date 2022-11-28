@@ -8,7 +8,7 @@ const Services = ({ service }) => {
     return (
         <div>
             <Link to={`/allcatagories/${catagory_name}`}>
-                <h2>{catagory_name}</h2>
+                <h2 className='text-xl'>{catagory_name}</h2>
             </Link>
 
 
