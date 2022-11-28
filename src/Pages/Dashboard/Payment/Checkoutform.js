@@ -9,7 +9,9 @@ const Checkoutform = ({ getpaymentData }) => {
     const [clientSecret, setClientSecret] = useState("");
     const stripe = useStripe();
     const elements = useElements();
-    const { productPrice, userName, email, _id } = getpaymentData;
+    const { productPrice, userName, email, _id, productName } = getpaymentData;
+
+    console.log(getpaymentData);
 
 
     useEffect(() => {
@@ -80,6 +82,7 @@ const Checkoutform = ({ getpaymentData }) => {
                 transactionId: paymentIntent.id,
                 email,
                 bookingId: _id
+
             }
 
             fetch('https://y-omega-two.vercel.app/payments', {
