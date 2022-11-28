@@ -66,6 +66,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/payment/:id',
+                loader: ({ params }) => fetch(`https://y-omega-two.vercel.app/bookings/${params.id}`),
                 element: <Payment></Payment>
             }
 
