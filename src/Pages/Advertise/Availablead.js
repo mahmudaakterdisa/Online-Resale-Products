@@ -3,7 +3,7 @@ import React from 'react';
 const Availablead = ({ ad }) => {
     console.log(ad);
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 bg-base-100 shadow-xl mt-5">
             <figure><img src={ad.image} alt="advertise" /></figure>
             <div className="card-body">
                 <h2 >{ad.catagory_name}</h2>
