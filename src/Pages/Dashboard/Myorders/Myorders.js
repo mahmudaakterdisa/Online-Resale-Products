@@ -80,7 +80,7 @@ const Myorders = () => {
                                     {
                                         book.productPrice && book.paid &&
 
-                                        <span className='text-primary'>paid</span>
+                                        <span className='text-green-500'>paid</span>
                                     }
 
 

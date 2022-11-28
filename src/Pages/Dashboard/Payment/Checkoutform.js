@@ -9,7 +9,7 @@ const Checkoutform = ({ getpaymentData }) => {
     const [clientSecret, setClientSecret] = useState("");
     const stripe = useStripe();
     const elements = useElements();
-    const { productPrice, userName, email } = getpaymentData;
+    const { productPrice, userName, email, _id } = getpaymentData;
 
 
     useEffect(() => {
@@ -72,11 +72,40 @@ const Checkoutform = ({ getpaymentData }) => {
 
         if (paymentIntent.status === "succeeded") {
 
-            setSuccess('Congrats! payment completed successfully');
-            setTransactionId(paymentIntent.id);
-            setProcessing(false);
-        }
 
+            //store payment info in database
+            const payment = {
+
+                productPrice,
+                transactionId: paymentIntent.id,
+                email,
+                bookingId: _id
+            }
+
+            fetch('https://y-omega-two.vercel.app/payments', {
+
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+
+                body: JSON.stringify(payment)
+            })
+
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        setSuccess('Congrats! payment completed successfully');
+                        setTransactionId(paymentIntent.id);
+                    }
+                })
+
+
+
+
+        }
+        setProcessing(false);
         console.log(paymentIntent);
         console.log("paymentIntent", paymentIntent);
 
