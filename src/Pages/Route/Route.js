@@ -5,6 +5,7 @@ import Privateroute from "../../Shared/Privateroute/Privateroute";
 import Adminroute from "../Adminroute/Adminroute";
 
 import Allcatagories from "../AllCatagories/Allcatagories";
+import Blog from "../Blog/Blog";
 import Addproduct from "../Dashboard/Addproduct/Addproduct";
 
 import Alluser from "../Dashboard/Allusers/Alluser";
@@ -35,12 +36,18 @@ export const router = createBrowserRouter([
                 element: <Registration></Registration>
             },
             {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
                 path: '/allcatagories/:name',
                 loader: ({ params }) => fetch(`https://y-omega-two.vercel.app/catagories/${params.name}`),
                 element: <Privateroute><Allcatagories></Allcatagories></Privateroute>
             },
 
         ]
+
+
     },
 
     {
@@ -71,7 +78,15 @@ export const router = createBrowserRouter([
             }
 
         ]
-    }
+    },
 
+    {
+        path: '*',
+        element: <div className="my-60 mx-96">
+            <img src="https://www.crazydomains.co.nz/help/404-not-found-error-explained/?image_id=2979" alt="" />
+            {/* <h1>page not found</h1> */}
+
+        </div>
+    }
 
 ])
