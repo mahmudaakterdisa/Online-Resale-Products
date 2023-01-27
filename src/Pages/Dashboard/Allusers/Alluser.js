@@ -23,7 +23,7 @@ const Alluser = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast('This email is admin now');
+                    toast.success('This email is admin now');
                     refetch();
                 }
             })
@@ -41,7 +41,7 @@ const Alluser = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     refetch();
-                    toast("Deleted Successfully")
+                    toast.success("Deleted Successfully")
 
 
                 }
@@ -49,33 +49,40 @@ const Alluser = () => {
 
     }
 
+    const handleVerify = () => {
+
+    }
+
     return (
-        <div>
-            <h3 className='text-3xl text-center'>All Users</h3>
-            <div className="overflow-x-auto mt-5">
-                <table className="table w-full">
+        <div className='flex flex-col justify-center items-center my-20'>
+            <div className='text-3xl text-center font-serif font-bold uppercase underline' data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="800">
+                <h3 >MÖBEL Users</h3>
+            </div>
+
+            <div className="overflow-x-auto my-10" data-aos="flip-left" data-aos-duration="1500" data-aos-easing="ease-in-out" data-aos-delay="800">
+                <table className="table w-auto">
 
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Status</th>
-                            <th>Verify</th>
-                            <th>Admin</th>
-                            <th>Delete</th>
+                            <th className=' font-serif'>Name</th>
+                            <th className=' font-serif'>Email</th>
+                            <th className=' font-serif'>Status</th>
+                            {/* <th className=' font-serif'>Verify</th> */}
+                            <th className=' font-serif'>Admin</th>
+                            <th className=' font-serif'>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         {
                             users.map((userinfo, i) => <tr key={userinfo._id}>
-                                <th>{i}</th>
-                                <td>{userinfo.name}</td>
-                                <td>{userinfo.email}</td>
-                                <td>{userinfo.typeuser}</td>
+                                <th className=' font-serif'>{i}</th>
+                                <td className=' font-serif'>{userinfo.name}</td>
+                                <td className=' font-serif'>{userinfo.email}</td>
+                                <td className=' font-serif'>{userinfo.typeuser}</td>
 
-                                <td><button className='btn btn-outline'>verify</button></td>
+                                {/* <td><button onClick={() => handleVerify(userinfo._id)} className='btn btn-outline hover:btn-secondary font-serif rounded-none'>verify</button></td> */}
                                 <td>
 
                                     {
@@ -83,15 +90,15 @@ const Alluser = () => {
 
 
 
-                                            <button className='btn btn-outline'>Admin</button>
+                                            <button className='btn btn-outline hover:btn-secondary font-serif rounded-none'>Admin</button>
                                             :
-                                            <button onClick={() => handleAdmin(userinfo._id)} className='btn btn-outline'>Make Admin</button>
+                                            <button onClick={() => handleAdmin(userinfo._id)} className='btn btn-outline hover:btn-secondary font-serif rounded-none'>Make Admin</button>
 
 
                                     }
 
                                 </td>
-                                <td><button onClick={() => handledelete(userinfo._id)} className='btn btn-outline'>Delete</button></td>
+                                <td><button onClick={() => handledelete(userinfo._id)} className='btn btn-outline hover:btn-secondary font-serif rounded-none'>Delete</button></td>
                             </tr>)
 
                         }

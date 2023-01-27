@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Availablead from './Availablead';
 
 const Advertise = () => {
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
 
     const [getAdvertise, setGetAdvertise] = useState([]);
 
@@ -13,17 +19,20 @@ const Advertise = () => {
     }, []);
 
     return (
-        <div className='mt-20'>
+        <div className='my-20'>
 
 
-            {
-                getAdvertise.length != 0 &&
-                <h1 className='text-4xl'>Available Advertise</h1>
-            }
+            <div className='mx-auto text-4xl font-serif text-center max-sm:w-3/4 underline' data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="800">
+                {
+                    getAdvertise.length != 0 &&
+                    <p>MÖBEL SPECIAL OFFERS</p>
+
+                }
+            </div>
 
 
 
-            <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 mt-20 lg:ml-40'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-16 w-5/6 mx-auto gap-10'>
                 {
                     getAdvertise.map((ad) =>
                         ad.advertise === 'yes' &&

@@ -4,8 +4,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../../../Shared/Authprovider/Authprovider';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Myorders = () => {
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     const { user } = useContext(Authcontext);
 
     const url = `https://y-omega-two.vercel.app/bookings?email=${user?.email}`;
@@ -41,20 +47,21 @@ const Myorders = () => {
 
 
     return (
-        <div>
-            <h3 className='text-3xl text-center'>My Orders</h3>
-
-            <div className="overflow-x-auto">
-                <table className="table w-full">
+        <div className='flex flex-col justify-center items-center my-20'>
+            <div className='text-3xl text-center font-serif font-bold uppercase underline' data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="800">
+                <h3>MÖBEL Orders</h3>
+            </div>
+            <div className="overflow-x-auto my-10" data-aos="flip-left" data-aos-duration="1500" data-aos-easing="ease-in-out" data-aos-delay="800">
+                <table className="table w-auto">
 
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Resale-Price</th>
-                            <th>Meeting-Location</th>
-                            <th>Payment</th>
-                            <th>Delete</th>
+                            <th className=' font-serif'>Name</th>
+                            <th className=' font-serif'>Resale-Price</th>
+                            <th className=' font-serif'>Meeting-Location</th>
+                            <th className=' font-serif'>Payment</th>
+                            <th className=' font-serif'>Delete</th>
 
                         </tr>
                     </thead>
@@ -62,17 +69,17 @@ const Myorders = () => {
 
                         {
                             bookings.map((book, i) => <tr key={book._id}>
-                                <th>{i}</th>
-                                <td>{book.productName}</td>
-                                <td>{book.productPrice}</td>
-                                <td>{book.meetingLocation}</td>
-                                <td>{
+                                <th className=' font-serif'>{i}</th>
+                                <td className=' font-serif'>{book.productName}</td>
+                                <td className=' font-serif'>{book.productPrice}</td>
+                                <td className=' font-serif'>{book.meetingLocation}</td>
+                                <td className=' font-serif'>{
                                     book.productPrice && !book.paid && <Link
                                         to={`/dashboard/payment/${book._id}`}>
 
                                         <button
-                                            className='btn btn-outline'>
-                                            pay now
+                                            className='btn btn-outline hover:btn-secondary font-serif rounded-none'>
+                                            Pay Now
                                         </button>
                                     </Link>
 
@@ -80,13 +87,13 @@ const Myorders = () => {
                                     {
                                         book.productPrice && book.paid &&
 
-                                        <span className='text-green-500'>paid</span>
+                                        <span className='text-green-500 font-serif'>paid</span>
                                     }
 
 
 
                                 </td>
-                                <td><button onClick={() => handleOrderDelete(book._id)} className='btn btn-outline'>DELETE</button></td>
+                                <td><button onClick={() => handleOrderDelete(book._id)} className='btn btn-outline hover:btn-secondary font-serif rounded-none'>DELETE</button></td>
                             </tr>)
                         }
 

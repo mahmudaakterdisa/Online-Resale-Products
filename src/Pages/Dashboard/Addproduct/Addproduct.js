@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
-
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Authcontext } from '../../../Shared/Authprovider/Authprovider';
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Addproduct = () => {
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+    const { user } = useContext(Authcontext);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
+    const defaultValues = {
+        email: user.email
+    };
 
 
 
@@ -26,6 +41,7 @@ const Addproduct = () => {
 
             Date: data.pdate,
             sallername: data.sellername,
+            salleremail: data.salleremail,
             advertise: data.advertise,
 
             name: data.pname,
@@ -46,158 +62,176 @@ const Addproduct = () => {
                 if (data.acknowledged) {
 
                     toast.success('Added Successfully');
+                    navigate('/');
                 }
+
 
             })
     }
     return (
-        <div className='h-[800px] flex justify-center'>
-            <div className='w-96 p-7'>
-                <h1 className='text-4xl'>Add Products</h1>
-
-                <form onSubmit={handleSubmit(handleAddProduct)}>
-
-
-                    {/*cat name */}
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">category Name</span>
-
-                        </label>
-                        <input type="text" {...register(
-                            "name",
-                            { required: "Name is required" }
-                        )}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.name && <p className='text-red-600'>{errors.name?.message}</p>}
+        <div className=' flex flex-col justify-center items-center my-20'>
+            <div className='w-auto'>
+                <div className='text-3xl text-center font-serif font-bold uppercase underline' data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="800">
+                    <h1>MÖBEL Products</h1>
+                </div>
+                <div data-aos="flip-right" data-aos-duration="1500" data-aos-easing="ease-in-out" data-aos-delay="800">
+                    <form onSubmit={handleSubmit(handleAddProduct)} className='my-10'>
 
 
-                    </div>
+                        {/*cat name */}
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Category Name</span>
+
+                            </label>
+                            <input type="text" {...register(
+                                "name",
+                                { required: "Name is required" }
+                            )}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.name && <p className='text-red-600'>{errors.name?.message}</p>}
 
 
-                    {/* product name */}
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Product Name</span>
-
-                        </label>
-                        <input type="text" {...register(
-                            "pname",
-                            { required: "Product Name is required" }
-                        )}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.pname && <p className='text-red-600'>{errors.pname?.message}</p>}
+                        </div>
 
 
-                    </div>
+                        {/* product name */}
+                        <div className="form-control w-full font-serif font-semibold ">
+                            <label className="label">
+                                <span className="label-text">Product Name</span>
+
+                            </label>
+                            <input type="text" {...register(
+                                "pname",
+                                { required: "Product Name is required" }
+                            )}
+                                className="input input-bordered w-full rounded-none" />
+                            {errors.pname && <p className='text-red-600'>{errors.pname?.message}</p>}
 
 
-
-                    {/* Resale price */}
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Resale price</span>
-
-                        </label>
-                        <input type="number" {...register(
-                            "resale",
-                            { required: "Type is required" }
-                        )}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.usertype && <p className='text-red-600'>{errors.usertype?.message}</p>}
-
-
-                    </div>
+                        </div>
 
 
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Orginial Price</span>
+                        {/* Resale price */}
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Resale Price</span>
 
-                        </label>
-                        <input type="number" {...register(
-                            "orginial",
-                            { required: "Orginial price is required" }
-                        )}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
-
-
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">years of use</span>
-
-                        </label>
-                        <input type="number" {...register("yearsofuse", { required: "years of use is required" })}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
+                            </label>
+                            <input type="number" {...register(
+                                "resale",
+                                { required: "Type is required" }
+                            )}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.usertype && <p className='text-red-600'>{errors.usertype?.message}</p>}
 
 
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Location</span>
-
-                        </label>
-                        <input type="text" {...register("location", { required: "Location is required" })}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
-
-
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Posted Date</span>
-
-                        </label>
-                        <input type="Date" {...register("pdate", { required: "Posted Date is required" })}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.Date && <p className='text-red-600'>{errors.Date?.message}</p>}
-
-
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Seller Name</span>
-
-                        </label>
-                        <input type="text" {...register("sellername", { required: "Seller name is required" })}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.sellername && <p className='text-red-600'>{errors.sellername?.message}</p>}
-
-
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Image URL</span>
-
-                        </label>
-                        <input type="url" {...register("imgurl", { required: "URL name is required" })}
-                            className="input input-bordered w-full max-w-xs" />
-                        {errors.imgurl && <p className='text-red-600'>{errors.imgurl?.message}</p>}
-
-
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Wants to Advertise your product?</span>
-
-                        </label>
-                        <input type="text" {...register("advertise", { required: "Advertise is required" })}
-                            className="input input-bordered w-full max-w-xs" placeholder='please type yes/no' />
-                        {/* {errors.imgurl && <p className='text-red-600'>{errors.imgurl?.message}</p>} */}
-
-
-                    </div>
+                        </div>
 
 
 
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Original Price</span>
+
+                            </label>
+                            <input type="number" {...register(
+                                "orginial",
+                                { required: "Orginial price is required" }
+                            )}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
 
 
-                    <input className='btn btn-primary max-w-xs mt-3' value='Add product' type="submit" />
-                </form>
+                        </div>
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Years Of Use</span>
+
+                            </label>
+                            <input type="number" {...register("yearsofuse", { required: "years of use is required" })}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
+
+
+                        </div>
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Location</span>
+
+                            </label>
+                            <input type="text" {...register("location", { required: "Location is required" })}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
+
+
+                        </div>
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Posted Date</span>
+
+                            </label>
+                            <input type="Date" {...register("pdate", { required: "Posted Date is required" })}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.Date && <p className='text-red-600'>{errors.Date?.message}</p>}
+
+
+                        </div>
+
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Product Image</span>
+
+                            </label>
+                            <input type="url" {...register("imgurl", { required: "URL name is required" })}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.imgurl && <p className='text-red-600'>{errors.imgurl?.message}</p>}
+
+
+                        </div>
+
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Seller Name</span>
+
+                            </label>
+                            <input type="text" {...register("sellername", { required: "Seller name is required" })}
+                                className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.sellername && <p className='text-red-600'>{errors.sellername?.message}</p>}
+
+
+                        </div>
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Seller Email</span>
+
+                            </label>
+                            <input type="text" {...register("selleremail", { required: "Seller email is required" })}
+                                defaultValue={defaultValues.email} className="input input-bordered w-full max-w-xs rounded-none" />
+                            {errors.selleremail && <p className='text-red-600'>{errors.selleremail?.message}</p>}
+
+
+                        </div>
+                        <div className="form-control w-full max-w-xs font-serif font-semibold">
+                            <label className="label">
+                                <span className="label-text">Wants to Advertise Your Product?</span>
+
+                            </label>
+                            <input type="text" {...register("advertise", { required: "Advertise is required" })}
+                                className="input input-bordered w-full max-w-xs rounded-none" placeholder='Please Type yes/no' />
+                            {/* {errors.imgurl && <p className='text-red-600'>{errors.imgurl?.message}</p>} */}
+
+
+                        </div>
+
+
+
+
+
+                        <input className='btn btn-outline hover:btn-secondary font-serif max-w-xs mt-3' value='Add product' type="submit" />
+                    </form>
+                </div>
             </div>
         </div>
     );

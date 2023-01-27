@@ -109,21 +109,20 @@ const Checkoutform = ({ getpaymentData }) => {
 
         }
         setProcessing(false);
-        console.log(paymentIntent);
-        console.log("paymentIntent", paymentIntent);
 
     }
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <CardElement
+
                     options={{
                         style: {
                             base: {
                                 fontSize: '16px',
                                 color: '#424770',
                                 '::placeholder': {
-                                    color: '#aab7c4',
+                                    color: 'black',
                                 },
                             },
                             invalid: {
@@ -132,15 +131,15 @@ const Checkoutform = ({ getpaymentData }) => {
                         },
                     }}
                 />
-                <button className='btn btn-primary mt-10' type="submit" disabled={!stripe || !clientSecret || processing}>
-                    Pay
+                <button className='btn btn-outline hover:btn-secondary font-serif mt-10' type="submit" disabled={!stripe || !clientSecret || processing}>
+                    PAY
                 </button>
             </form>
             <p className='text-red-500'>{cardError}</p>
             {
-                success && <div>
-                    <p className='text-green-500'>{success}</p>
-                    <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
+                success && <div className=' font-serif'>
+                    <p className='text-green-500 font-serif'>{success}</p>
+                    <p>Your transactionId: <span className='font-bold font-serif'>{transactionId}</span></p>
                 </div>
             }
         </>

@@ -1,40 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import './Banner.css';
-import Carousel from 'react-bootstrap/Carousel';
+import image from './Banner4.jpg'
 
 const Banner = () => {
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
-        <div>
-            <div className="carousel w-full">
-                <div id="slide1" className="carousel-item relative w-full">
-                    <img src="https://img.freepik.com/free-photo/modern-style-kitchen-interior-design-with-red-black-wall3d-rendering_41470-4397.jpg?w=996&t=st=1669644375~exp=1669644975~hmac=d091dde91896d6a646fe526bf8b4053b6b04db4f64e0597ad5bb84bf6867f437" className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide4" className="btn btn-circle">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide2" className="carousel-item relative w-full">
-                    <img src="https://img.freepik.com/free-photo/modern-living-room-interior-with-sofa-green-plants-lamp-table-dark-wall-background_41470-1528.jpg?w=1380&t=st=1669644046~exp=1669644646~hmac=a81db911a9fa52b390f26e992e76213a9651d94cdf23156fccdc1cc2e13afc01" className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide3" className="carousel-item relative w-full">
-                    <img src="https://img.freepik.com/free-photo/mockup-living-room-interior-with-sofa-empty-dark-blue-wall-background-3d-rendering_41470-4236.jpg?w=1380&t=st=1669644580~exp=1669645180~hmac=39fd50a1a94a89edc2957e5043f8101a23faf5d97bd36891cb3ab02b54d46638" className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide2" className="btn btn-circle">❮</a>
-                        <a href="#slide4" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide4" className="carousel-item relative w-full">
-                    <img src="https://img.freepik.com/free-photo/green-wall-mockup-with-green-plant-shelf3d-rendering_41470-4114.jpg?w=1380&t=st=1669644623~exp=1669645223~hmac=53e1b16947d22debccc9960e61b60508e75f545e55e4ed018b78febef4c695b7" className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide3" className="btn btn-circle">❮</a>
-                        <a href="#slide1" className="btn btn-circle">❯</a>
+        <div className='banner-container flex items-center'>
+
+            <div className=' mx-auto  h-4/5 w-2/4 max-sm:h-3/5 max-lg:h-4/5 relative hometransparent-box rounded-none '>
+
+                <div className='  w-full h-full   absolute '>
+                    <div className='w-full h-full  max-sm:text-4xl md:text-black  font-bold font-serif py-36 max-sm:py-20 flex flex-col justify-center items-center'>
+                        <div className='text-7xl max-sm:text-2xl text-black font-bold text-center font-serif' data-aos="fade" data-aos-easing="ease-in-sine" data-aos-delay="300" data-aos-duration="1500">
+                            <p>Simply Buy <br /> Used Furniture</p>
+                        </div>
+
+                        <div className='text-3xl max-sm:xl text-yellow-200 font-semibold text-center my-5 font-serif' data-aos="fade" data-aos-easing="ease-in-sine" data-aos-delay="600" data-aos-duration="1500">
+                            <p>With second-hand designer furniture</p>
+                        </div>
+                        <div className="card-actions sm:font-bold" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="800">
+                            <button className="btn btn-outline hover:btn-secondary rounded-none sm:text-xl">Shop Now</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
 
     );

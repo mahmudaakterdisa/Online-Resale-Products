@@ -1,35 +1,4 @@
 .home-container {
-    height: 100%;
-    width: 90%;
-    margin-left: 10%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-}
-
-.banner-container {
-
-    /* margin-right: 10%; */
-    margin-bottom: 10%;
-    width: 90%;
-
-
-
-}
-
-.catagories-container {
-    margin-bottom: 10%;
-}
-
-.ctagories-text {
-    text-align: center;
-    margin-bottom: 5%;
-}
-
-.catagories-container a {
-    text-decoration: none;
-}
-
-.testimonial-conatiner {
-    width: 90%;
-    margin-top: 10%;
+    min-height: 100vh;
+    width: 100%;
 }

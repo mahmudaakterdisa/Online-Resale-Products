@@ -47,7 +47,7 @@ const Login = () => {
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
-                <h2 className='text-4xl text-center'>Login</h2>
+                <h2 className='text-4xl text-center font-serif uppercase'>MÖBEL Login </h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
 
 
@@ -82,11 +82,11 @@ const Login = () => {
 
 
 
-                    <input className='btn btn-primary w-full mt-3' value='Login' type="submit" />
+                    <input className='btn btn-outline hover:btn-secondary font-serif w-full mt-3' value='Login' type="submit" />
                 </form>
-                <p><Link to='/register' className='text-primary'>To create a new account</Link></p>
+                <p><Link to='/register' className='text-secondary mt-3'>To create a new account With MÖBEL</Link></p>
                 <div className="divider">OR</div>
-                <button onClick={handlegoogleevent} className='btn btn-outline max-w-xs'>Continue With Google</button>
+                <button onClick={handlegoogleevent} className='btn btn-outline hover:btn-secondary font-serif max-w-xs'>Continue With Google</button>
             </div>
         </div>
     );

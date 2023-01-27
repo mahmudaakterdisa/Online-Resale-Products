@@ -17,6 +17,7 @@ import Home from "../Home/Home";
 import Login from "../UserInformation/Login/Login";
 import Registration from "../UserInformation/Registration/Registration";
 
+//resale products
 
 export const router = createBrowserRouter([
     {
@@ -84,7 +85,6 @@ export const router = createBrowserRouter([
         path: '*',
         element: <div className="my-60 mx-96">
             <img src="https://www.crazydomains.co.nz/help/404-not-found-error-explained/?image_id=2979" alt="" />
-            {/* <h1>page not found</h1> */}
 
         </div>
     }

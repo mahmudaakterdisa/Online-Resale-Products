@@ -1,0 +1,12 @@
+.categories-banner {
+    background-image: url('https://i.ibb.co/q9ppZtq/loft-luxury-living-room-with-bookshelf-near-dining-table.jpg');
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.transparent-box {
+    background-color: rgb(174, 174, 174, 0.5);
+}

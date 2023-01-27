@@ -20,35 +20,11 @@ const Home = () => {
     return (
         <div className='home-container'>
 
-            <div className='banner-container'>
-                <Banner></Banner>
-            </div>
 
+            <Banner></Banner>
+            <Advertise></Advertise>
 
-            <div className='catagories-container'>
-                <div className='ctagories-text'>
-                    <h1 className='text-4xl'>Available Catagories</h1>
-                </div>
-                <div className='grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 '>
-
-
-                    {
-                        services.map(service => <Services key={service._id} service={service}></Services>)
-
-                    }
-                </div>
-
-
-                <div>
-                    <Advertise></Advertise>
-                </div>
-                <div className='testimonial-conatiner'>
-                    <Testimonial></Testimonial>
-                </div>
-
-            </div>
-
-
+            <Testimonial></Testimonial>
         </div>
     );
 };
